@@ -1,33 +1,41 @@
 package pl.sdacademy.java.basic.exercises.day1;
 
 import java.util.Scanner;
-import java.lang.Math;
 
 public class Task3 {
-    private static Scanner scanner = new Scanner(System.in);
-    public static void main(String[] arg){
-        float weight = getWeight();
-        int height = getHeight();
-        System.out.println(weight+ "   " + height);
-        displayInfo(weight,height);
-    }
-    private static float getWeight(){
-        System.out.println("Please insert weight in kg: ");
-        return scanner.nextFloat();
-    }
-    private  static  int getHeight(){
-        System.out.println("Please insert height in cm: ");
-        return scanner.nextInt();
-    }
-    private  static void displayInfo(float weight, int height){
-        float bmi = weight/(float)Math.pow((float)height/100,2);
-        System.out.println(bmi);
-        if (bmi >=18.5 && bmi <=24.9){
-            System.out.println("BMI is correct:" +bmi);
-        }
-        else{
-            System.out.println("BMI is not correct:" + bmi);
-        }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Please insert first digit: ");
+        int x = scanner.nextInt();
+
+        System.out.print("Please insert second digit: ");
+        int y = scanner.nextInt();
+
+        methodForPointA(x, y);
+        methodForPointB(x, y);
+        methodForPointC(x, y);
+        methodForPointD(x, y);
     }
 
+    private static void methodForPointA(int x, int y) {
+        boolean result = x > y;
+        System.out.println("If x is greater than y: " + result);
+    }
+
+    private static void methodForPointB(int x, int y) {
+        boolean result = x * 3 > y;
+        System.out.println("If x * 3 is greater than y: " + result);
+    }
+
+    private static void methodForPointC(int x, int y) {
+        boolean result = (y++ < ++x) && (--x < y++);
+        System.out.println("If y++ is smaller than ++x and --x is smaller than y++: " + result);
+    }
+
+    private static void methodForPointD(int x, int y) {
+        boolean result = (x * y) % 2 == 0;
+        System.out.println("If x * y is even: " + result);
+    }
 }
